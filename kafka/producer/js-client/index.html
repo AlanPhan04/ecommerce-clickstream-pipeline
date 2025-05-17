@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clickstream Logger</title>
+  <script>
+    function sendClickEvent(event) {
+      const data = {
+        type: 'click',
+        element: event.target.tagName,
+        timestamp: Date.now(),
+        x: event.clientX,
+        y: event.clientY
+      };
+      console.log('Sending event:', data);
+      // TODO: send to backend or Kafka REST proxy
+    }
+    document.addEventListener('click', sendClickEvent);
+  </script>
+</head>
+<body>
+  <h1>Clickstream Logger Demo</h1>
+  <button>Test Button</button>
+  <p>Click anywhere to generate event.</p>
+</body>
+</html>
